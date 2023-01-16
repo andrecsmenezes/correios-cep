@@ -3,7 +3,7 @@ WORKDIR /app
 COPY composer.json composer.json
 RUN composer install --ignore-platform-reqs
 
-FROM php:7.2-apache
+FROM php:7.3.31-apache
 COPY --from=phpcomposer /app/vendor /var/www/html/vendor
 COPY --from=phpcomposer /app/composer.json /var/www/html/composer.json
 COPY --from=phpcomposer /app/composer.lock /var/www/html/composer.lock
